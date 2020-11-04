@@ -9,7 +9,6 @@
 const int COUNT = 10;
 
 void first();
-
 void second();
 
 int main() {
