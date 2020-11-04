@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <ppl.h>
 #include <cmath>
 #include <vector>
@@ -23,7 +23,7 @@ void first() {
 
     clocks = clock();
     for (int i = 1; i < COUNT; i++) {
-        y = calcRow(100.0 * cos(i));
+        y = calcRow(100 * cos(i));
     }
     std::cout << "Time of sequential algorithm: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
 
@@ -45,12 +45,12 @@ void second() {
     std::deque<double> dequePar(0);
     std::list<double> listPar(0);
     for (int i = 1; i < COUNT; i++) {
-        vector.push_back(100.0 * cos(i));
-        deque.push_back(100.0 * cos(i));
-        list.push_back(100.0 * cos(i));
-        vectorPar.push_back(100.0 * cos(i));
-        dequePar.push_back(100.0 * cos(i));
-        listPar.push_back(100.0 * cos(i));
+        vector.push_back(100 * cos(i));
+        deque.push_back(100 * cos(i));
+        list.push_back(100 * cos(i));
+        vectorPar.push_back(100 * cos(i));
+        dequePar.push_back(100 * cos(i));
+        listPar.push_back(100 * cos(i));
     }
 
     clocks = clock();

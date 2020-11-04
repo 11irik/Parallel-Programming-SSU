@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include "Function.h"
 
 double calcRow(double x) {
     double y = 0;
