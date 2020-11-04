@@ -3,12 +3,17 @@ project(subprojects)
 
 add_subdirectory(share)
 
-add_executable(task1 1_parallel.cpp)
-target_link_libraries(task1
+add_executable(task1_1 1_1_parallel_for.cpp)
+target_link_libraries(task1_1
         share::function
         )
 
-add_executable(task2 transform_2.cpp)
+add_executable(task1_2 1_2_parallel_for_each.cpp)
+target_link_libraries(task1_2
+        share::function
+        )
+
+add_executable(task2 2_transform.cpp)
 target_link_libraries(task2
         share::function
         )

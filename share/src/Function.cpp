@@ -17,7 +17,7 @@ void calcRowWrap(double &i) {
     i = calcRow(i);
 }
 
-double calcRow(double x, double y, int n) {
+double calcTwiceRow(double x, double y, int n) {
     double tmp = 0;
 
     for (int k = 1; k <= n; k++) {

@@ -35,7 +35,7 @@ int main() {
         for (int j = 0; j < N1; j++) {
             double x = h * k;
             double y = h * j;
-            double f = calcRow(x, y, N2);
+            double f = calcTwiceRow(x, y, N2);
             if (f >= 0) {
                 Pts.push_back(Point(x, y, f));
             }
@@ -51,7 +51,7 @@ int main() {
                                   for (int j = 0; j < N1; j++) {
                                       double x = h * k;
                                       double y = h * j;
-                                      double f = calcRow(x, y, N2);
+                                      double f = calcTwiceRow(x, y, N2);
                                       if (f >= 0) CPts.push_back(Point(x, y, f));
                                   }
                               }
@@ -67,7 +67,7 @@ int main() {
                                   for (int j = 0; j < N1; j++) {
                                       double x = h * k;
                                       double y = h * j;
-                                      double f = calcRow(x, y, N2);
+                                      double f = calcTwiceRow(x, y, N2);
                                       if (f >= 0) QPts.push(Point(x, y, f));
                                   }
                               }
