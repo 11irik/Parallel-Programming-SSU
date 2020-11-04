@@ -1,4 +1,4 @@
-project(task1)
+project(task5)
 
 add_executable(${PROJECT_NAME} Main.cpp)
 
