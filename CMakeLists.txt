@@ -18,12 +18,12 @@ target_link_libraries(task2
         share::function
         )
 
-add_executable(task3 sort_3.cpp)
+add_executable(task3 3_parallel_sort.cpp)
 target_link_libraries(task3
         share::function
         )
 
-add_executable(task4 sort_4.cpp)
+add_executable(task4 4_parallel_radixsort.cpp)
 target_link_libraries(task4
         share::function
         )

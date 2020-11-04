@@ -3,27 +3,25 @@
 #include <cmath>
 #include <vector>
 
-const int COUNT = 5000000;
+const int COUNT = 500000;
 
-double fun(double x) {
-    return x * x / (1 + x * x) * cos(x);
+size_t fun(size_t x) {
+    return 4.0e+9 * x * x / (1 + x * x) * cos(x);
 }
 
 int main() {
     double clocks;
 
-    std::vector<double> vector(0);
-    std::vector<double> vectorParallel(0);
-    std::vector<double> vectorBuffered(0);
-
+    std::vector<size_t> vector(0);
     for (int i = 0; i < COUNT; i++) {
         vector.push_back(fun(i));
-        vectorParallel.push_back(fun(i));
-        vectorBuffered.push_back(fun(i));
     }
+    std::vector<size_t> vectorParallel(vector);
+    std::vector<size_t> vectorBuffered(vector);
+    std::vector<size_t> vectorRadix(vector);
 
     clocks = clock();
-    std::sort(vector.begin(), vector.end());
+    sort(vector.begin(), vector.end());
     std::cout << "Time of sequential algorithm for vector: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
 
     clocks = clock();
@@ -33,4 +31,8 @@ int main() {
     clocks = clock();
     concurrency::parallel_buffered_sort(vectorBuffered.begin(), vectorBuffered.end());
     std::cout << "Time of parallel buffered algorithm for vector: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
+
+    clocks = clock();
+    concurrency::parallel_radixsort(vectorRadix.begin(), vectorRadix.end());
+    std::cout << "Time of parallel radixsort algorithm for vector: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
 }
