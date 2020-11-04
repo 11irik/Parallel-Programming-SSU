@@ -1,8 +1,15 @@
-project (share)
+project(share)
 
-add_library(${PROJECT_NAME} src/Function.cpp)
-add_library(share::function ALIAS ${PROJECT_NAME})
+add_library(function src/Function.cpp)
+add_library(simps src/Concurrent_Simps.cpp)
 
-target_include_directories( ${PROJECT_NAME}
-    PUBLIC ${PROJECT_SOURCE_DIR}/include
-)
+add_library(share::function ALIAS function)
+add_library(share::simps ALIAS simps)
+
+target_include_directories(function
+        PUBLIC ${PROJECT_SOURCE_DIR}/include
+        )
+
+target_include_directories(simps
+        PUBLIC ${PROJECT_SOURCE_DIR}/include
+        )
