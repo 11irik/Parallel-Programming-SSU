@@ -1,4 +1,5 @@
 ﻿#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <ppl.h>
 #include <cmath>
@@ -42,5 +43,6 @@ int main() {
                                   }
                               }
     );
-    std::cout << "Time of parallel algorithm for concurrent queue: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
+    std::cout << "Time of parallel algorithm for concurrent queue: " << (clock() - clocks) / CLOCKS_PER_SEC
+              << std::endl;
 }

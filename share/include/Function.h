@@ -2,8 +2,11 @@
 #define FUNCTION_H
 
 double calcRow(double x);
+
 void calcRowWrap(double &i);
+
 double calcTwiceRow(double x, double y, int n);
+
 struct Point {
     double x;
     double y;
@@ -15,4 +18,5 @@ struct Point {
         f = _f;
     }
 };
+
 #endif

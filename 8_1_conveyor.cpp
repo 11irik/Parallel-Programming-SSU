@@ -46,6 +46,7 @@ class Stage_Agent : public concurrency::agent {
 private:
     concurrency::ISource<double> &_source;
     concurrency::ITarget<double> &_target;
+
     double (*_func)(double);
 
 public:

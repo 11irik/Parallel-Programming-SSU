@@ -34,5 +34,6 @@ int main() {
 
     clocks = clock();
     concurrency::parallel_radixsort(vectorRadix.begin(), vectorRadix.end());
-    std::cout << "Time of parallel radixsort algorithm for vector: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
+    std::cout << "Time of parallel radixsort algorithm for vector: " << (clock() - clocks) / CLOCKS_PER_SEC
+              << std::endl;
 }

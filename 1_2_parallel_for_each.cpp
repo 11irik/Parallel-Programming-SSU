@@ -35,11 +35,11 @@ int main() {
     std::cout << "Time of sequential algorithm for list: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
 
     clocks = clock();
-    concurrency::parallel_for_each(vectorPar.begin(), vectorPar.end(),calcRowWrap);
+    concurrency::parallel_for_each(vectorPar.begin(), vectorPar.end(), calcRowWrap);
     std::cout << "Time of parallel algorithm for vector: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
 
     clocks = clock();
-    concurrency::parallel_for_each(dequePar.begin(), dequePar.end(),calcRowWrap);
+    concurrency::parallel_for_each(dequePar.begin(), dequePar.end(), calcRowWrap);
     std::cout << "Time of parallel algorithm for deque: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
 
     clocks = clock();

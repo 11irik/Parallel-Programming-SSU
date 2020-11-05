@@ -24,7 +24,7 @@ int main() {
     Concurrency::task_group TGr;
     clocks = clock();
     for (int k = 0; k < COUNT; k++) {
-        TGr.run([&array, k](){array[k]=calcRow(k);});
+        TGr.run([&array, k]() { array[k] = calcRow(k); });
     }
     TGr.wait();
     std::cout << "Time of parallel algorithm: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
