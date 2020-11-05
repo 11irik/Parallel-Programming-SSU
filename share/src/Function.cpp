@@ -27,4 +27,3 @@ double calcTwiceRow(double x, double y, int n) {
     }
     return tmp;
 }
-

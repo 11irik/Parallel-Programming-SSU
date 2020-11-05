@@ -28,13 +28,18 @@ target_link_libraries(task4
         share::function
         )
 
-add_executable(task5 task_group_5.cpp)
+add_executable(task5 5_task_group.cpp)
 target_link_libraries(task5
         share::function
         )
 
-add_executable(task6 concurrent_col_6.cpp)
-target_link_libraries(task6
+add_executable(task6_1 6_1_concurrent_vector.cpp)
+target_link_libraries(task6_1
+        share::function
+        )
+
+add_executable(task6_2 6_2_concurrent_queue.cpp)
+target_link_libraries(task6_2
         share::function
         )
 
