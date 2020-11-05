@@ -48,8 +48,8 @@ target_link_libraries(task7
         share::simps
         )
 
-add_executable(task8_1 conveyor_8_1.cpp)
-add_executable(task8_2 conveyor-transformer_8_2.cpp)
+add_executable(task8_1 8_1_conveyor.cpp)
+add_executable(task8_2 8_2_conveyor-transformer.cpp)
 
 
 
