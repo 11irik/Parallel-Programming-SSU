@@ -1,5 +1,5 @@
-#ifndef __SUBLIB_1_H__
-#define __SUBLIB_1_H__
+#ifndef CONCURRENT_SIMPS_H
+#define CONCURRENT_SIMPS_H
 
 #pragma once
 
@@ -13,7 +13,9 @@ namespace MethodCall {
     static void *ObjAddr = nullptr;
 
     template<class Ty>
-    double Sub_Int_Func(double x) { return (*((Ty *) ObjAddr))(x); }
+    double Sub_Int_Func(double x) {
+        return (*((Ty *) ObjAddr))(x);
+    }
 
     template<class Ty>
     double Simpson(double a, double b, int N, Ty const &Obj) {

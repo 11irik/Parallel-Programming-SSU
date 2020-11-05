@@ -43,7 +43,7 @@ target_link_libraries(task6_2
         share::function
         )
 
-add_executable(task7 simpson_7.cpp)
+add_executable(task7 7_simpson.cpp)
 target_link_libraries(task7
         share::simps
         )
