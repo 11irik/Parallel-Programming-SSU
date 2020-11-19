@@ -51,6 +51,9 @@ target_link_libraries(task7
 add_executable(task8_1 8_1_conveyor.cpp)
 add_executable(task8_2 8_2_conveyor-transformer.cpp)
 
+add_executable(task8_3 conveyor.cpp)
+add_executable(task8_4 conveyor-transformer.cpp)
+
 
 
 
