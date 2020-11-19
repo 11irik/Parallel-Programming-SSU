@@ -3,7 +3,7 @@
 #include <vector>
 #include "Function.h"
 
-const int COUNT = 10;
+const int COUNT = 100;
 
 int main() {
     double clocks;

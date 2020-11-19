@@ -3,7 +3,7 @@
 #include <cmath>
 #include <vector>
 
-const int COUNT = 500000;
+const int COUNT = 5000000;
 
 double fun(size_t x) {
     return x * x / (1 + x * x) * cos(x);

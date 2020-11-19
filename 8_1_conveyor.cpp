@@ -5,22 +5,20 @@
 #include <cmath>
 #include <iostream>
 
-int const N = 100;
+int const N = 50;
 int const NNN = 1000;
 int const Chunk = 100;
 
-//TODO: NOT READY
 double Func1(double x) {
     double Tmp = 0;
-    double Tmpa = abs(x);
+    double absX = abs(x);
 
     for (int n = 0; n <= N; n++) {
-        double Tmpxn = x + n;
-        double Tmpn3 = n * n * n;
         for (int k = 0; k <= N; k++) {
-            double Tmpk = k * k;
             for (int j = 0; j <= N; j++) {
-                Tmp += Tmpxn / (1 + Tmpa + Tmpn3 + k * k + j * j);
+                double a = std::sqrt(absX + n);
+                double b = std::sqrt(1 + absX + std::pow(n, 5)) + std::pow((k * k + j * j), 3.2);
+                Tmp += a / b;
             }
         }
     }
@@ -29,17 +27,18 @@ double Func1(double x) {
 
 double Func2(double x) {
     double Tmp = 0;
-    double Tmpa = abs(x);
+    double absX = abs(x);
+
     for (int n = 0; n <= N; n++) {
-        double Tmpn = n * n;
         for (int k = 0; k <= N; k++) {
-            double Tmpk = k * k * k;
             for (int j = 0; j <= N; j++) {
-                Tmp += 1.0 / (1 + Tmpa + Tmpn + Tmpk + j * j);
+                double a = std::sqrt(absX);
+                double b = std::sqrt(1 + absX) + std::pow(k, 3) + std::pow(n, 2) + std::pow(j, 2);
+                Tmp += a / b;
             }
         }
     }
-    return x * Tmp;
+    return Tmp;
 }
 
 class Stage_Agent : public concurrency::agent {
@@ -81,8 +80,6 @@ int main() {
     concurrency::unbounded_buffer<double> buf0;
     concurrency::unbounded_buffer<double> buf1;
     concurrency::unbounded_buffer<double> buf2;
-    concurrency::unbounded_buffer<double> buf3;
-    concurrency::unbounded_buffer<double> buf4;
 
     Stage_Agent Stage_Agent1(buf0, buf1, Func1);
     Stage_Agent Stage_Agent2(buf1, buf2, Func2);
@@ -94,11 +91,11 @@ int main() {
         send(buf0, X[k]);
     }
     for (int k = Chunk; k < X.size(); k++) {
-        Z[k - Chunk] = receive(buf4);
+        Z[k - Chunk] = receive(buf2);
         send(buf0, X[k]);
     }
     for (int k = X.size() - Chunk; k < X.size(); k++) {
-        Z[k] = receive(buf4);
+        Z[k] = receive(buf2);
     }
     std::cout << "Time of parallel algorithm: " << (clock() - clocks) / CLOCKS_PER_SEC << std::endl;
 }
